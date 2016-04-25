@@ -9,7 +9,7 @@ LISTEN_PORT = 8080
 def urls_to_check():
     return [
         'http://google.com',
-        'http://yahoo.com',
+        'http://wikipedia.org'
         'http://amazon.com'
     ]
 

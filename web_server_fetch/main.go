@@ -8,6 +8,7 @@ import (
 
 func checkStatus(url string, c chan int) {
 	resp, err := http.Get(url)
+	defer resp.Body.Close()
 	if err != nil {
 		c <- 400
 	} else {
@@ -22,7 +23,7 @@ func statusHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("%d: %s\n", requestCnt, r.RemoteAddr)
 	var urls = []string{
 		"http://google.com",
-		"http://yahoo.com",
+		"http://wikipedia.org",
 		"http://amazon.com",
 	}
 	var c = make(chan int, len(urls))
